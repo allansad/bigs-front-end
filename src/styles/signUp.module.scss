@@ -1,6 +1,6 @@
 .signUpContainer {
   background: #ffffff;
-  min-width: 25rem;
+  min-width: 35rem;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -47,4 +47,8 @@
 
 .signUpBtn:hover {
   background-color: #5768db;
+}
+
+.error {
+  color: #d11901;
 }
