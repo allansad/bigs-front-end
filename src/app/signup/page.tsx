@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { validateEmail, validatePassword } from "@/utils/\bformValidation";
+import { validateEmail, validatePassword } from "@/utils/formValidation";
 import register from "@/api/auth/register";
 
-import styles from "../../styles/signUp.module.scss";
+import styles from "@/styles/signUp.module.scss";
 
 export default function SignUp() {
   const [form, setForm] = useState({
@@ -84,6 +84,9 @@ export default function SignUp() {
 
   return (
     <div className={styles.signUpContainer}>
+      <button className={styles.backBtn} onClick={() => router.back()}>
+        뒤로가기
+      </button>
       <h2>회원가입</h2>
       <form onSubmit={handleSubmit}>
         <div className={styles.formGroup}>

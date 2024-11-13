@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { validateEmail, validatePassword } from "@/utils/\bformValidation";
+import { userStore } from "@/stores/userStore";
+import { validateEmail, validatePassword } from "@/utils/formValidation";
 import login from "@/api/auth/login";
-import styles from "../styles/home.module.scss";
+import styles from "@/styles/home.module.scss";
 
 export default function Home() {
   const [form, setForm] = useState({
@@ -46,6 +47,9 @@ export default function Home() {
     if (formIsValid) {
       try {
         await login(form.email, form.password);
+
+        userStore.setEmailPrefix(form.email);
+
         router.push("/board");
       } catch (error) {
         if (error instanceof Error) {
