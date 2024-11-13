@@ -40,36 +40,34 @@
 - [x] 글 등록, 조회(페이지네이션), 수정, 삭제
 
 ## 폴더 구조
-
-📦src
-┣ 📂api
-┃ ┣ 📂auth
-┃ ┃ ┣ 📜login.ts
-┃ ┃ ┣ 📜refreshAccessToken.ts
-┃ ┃ ┗ 📜register.ts
-┃ ┗ 📂board
-┃ ┃ ┗ 📜boardCRUD.ts
-┣ 📂app
-┃ ┣ 📂board
-┃ ┃ ┣ 📜BoardForm.tsx
-┃ ┃ ┣ 📜Header.tsx
-┃ ┃ ┣ 📜layout.tsx
-┃ ┃ ┗ 📜page.tsx
-┃ ┣ 📂signup
-┃ ┃ ┗ 📜page.tsx
-┃ ┣ 📜layout.tsx
-┃ ┗ 📜page.tsx
-┣ 📂stores
-┃ ┗ 📜userStore.ts
-┣ 📂styles
-┃ ┣ 📜board.module.scss
-┃ ┣ 📜globals.scss
-┃ ┣ 📜header.module.scss
-┃ ┣ 📜home.module.scss
-┃ ┗ 📜signUp.module.scss
-┗ 📂utils
-┃ ┗ 📜formValidation.ts
-
+📦src  
+┣ 📂api  
+┃ ┣ 📂auth  
+┃ ┃ ┣ 📜login.ts  
+┃ ┃ ┣ 📜refreshAccessToken.ts  
+┃ ┃ ┗ 📜register.ts  
+┃ ┗ 📂board  
+┃ ┃ ┗ 📜boardCRUD.ts  
+┣ 📂app  
+┃ ┣ 📂board  
+┃ ┃ ┣ 📜BoardForm.tsx  
+┃ ┃ ┣ 📜Header.tsx  
+┃ ┃ ┣ 📜layout.tsx  
+┃ ┃ ┗ 📜page.tsx  
+┃ ┣ 📂signup  
+┃ ┃ ┗ 📜page.tsx  
+┃ ┣ 📜layout.tsx  
+┃ ┗ 📜page.tsx  
+┣ 📂stores  
+┃ ┗ 📜userStore.ts  
+┣ 📂styles  
+┃ ┣ 📜board.module.scss  
+┃ ┣ 📜globals.scss  
+┃ ┣ 📜header.module.scss  
+┃ ┣ 📜home.module.scss  
+┃ ┗ 📜signUp.module.scss  
+┗ 📂utils  
+┃ ┗ 📜formValidation.ts  
 ## 고민한 점
 
 ### Access Token과 Refresh Token
