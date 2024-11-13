@@ -1,0 +1,139 @@
+.boardContainer {
+  background: #ffffff;
+  width: 50vw;
+  min-width: 20rem;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.boardContainer h1 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.formGroup textarea {
+  resize: none;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+  border-color: #6e8efb;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #6e8efb;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitBtn:hover {
+  background-color: #5768db;
+}
+
+.boardList {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.boardItem {
+  background-color: #f9f9f9;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.boardItem h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.boardItem p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.boardItem button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #ff5757;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.boardItem button:hover {
+  background-color: #e04e4e;
+}
+
+.pageNavigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.pageNavigation button {
+  padding: 0.6rem 1rem;
+  margin: 0 0.5rem;
+  background-color: #6e8efb;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.pageNavigation button:hover {
+  background-color: #5768db;
+}
+
+.pageNavigation button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #d11901;
+}

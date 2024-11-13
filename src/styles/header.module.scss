@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.navList {
+  list-style-type: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.navList li {
+  margin: 0;
+}
+
+.navList a {
+  text-decoration: none;
+  color: #6e8efb;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.navList a:hover {
+  color: #6e8efb;
+}
+
+.userInfo {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.userInfo p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
