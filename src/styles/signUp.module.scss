@@ -1,10 +1,27 @@
 .signUpContainer {
   background: #ffffff;
-  min-width: 35rem;
+  min-width: 20rem;
+  max-width: 20rem;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  position: relative;
+}
+
+.backBtn {
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #6e8efb;
+}
+
+.backBtn:hover {
+  color: #5768db;
 }
 
 .formGroup {
