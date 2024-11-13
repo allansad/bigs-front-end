@@ -1,12 +1,16 @@
 .boardContainer {
   background: #ffffff;
-  width: 50vw;
+  width: 90vw;
+  max-width: 800px;
+  height: 80vh;
   min-width: 20rem;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .boardContainer h1 {
@@ -69,6 +73,9 @@
   list-style: none;
   padding: 0;
   margin-top: 2rem;
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 60%;
 }
 
 .boardItem {
@@ -136,4 +143,51 @@
 
 .error {
   color: #d11901;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.closeModalBtn {
+  float: right;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.openModalBtn {
+  width: 5rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #6e8efb;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.openModalBtn:hover {
+  background-color: #5768db;
 }

@@ -11,6 +11,8 @@ import {
 import refreshAccessToken from "@/api/auth/refreshAccessToken";
 import styles from "@/styles/board.module.scss";
 
+import BoardForm from "./BoardForm";
+
 interface Board {
   id: number;
   title: string;
@@ -28,6 +30,8 @@ export default function BoardPage() {
   const [content, setContent] = useState<string>("");
   const [category, setCategory] = useState<string>("NOTICE");
   const [editId, setEditId] = useState<number | null>(null);
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const pageSize = 10;
 
@@ -105,7 +109,13 @@ export default function BoardPage() {
       setCategory("NOTICE");
       setPage(0);
     } catch (error) {
+      if ((error as Error).message === "redirect") {
+        router.push("/");
+      }
+
       setError((error as Error).message);
+    } finally {
+      closeModal();
     }
   }
 
@@ -134,7 +144,13 @@ export default function BoardPage() {
       setCategory("NOTICE");
       setPage(0);
     } catch (error) {
+      if ((error as Error).message === "토큰 갱신 실패") {
+        router.push("/");
+      }
+
       setError((error as Error).message);
+    } finally {
+      closeModal();
     }
   }
 
@@ -149,6 +165,10 @@ export default function BoardPage() {
       await deletePost(id, accessToken as string, refreshToken as string);
       setBoards(boards.filter((board) => board.id !== id));
     } catch (error) {
+      if ((error as Error).message === "토큰 갱신 실패") {
+        router.push("/");
+      }
+
       setError((error as Error).message);
     }
   }
@@ -165,55 +185,24 @@ export default function BoardPage() {
     setCategory(board.category);
   }
 
+  function openModal() {
+    setTitle("");
+    setContent("");
+    setCategory("NOTICE");
+    setEditId(null);
+    setIsModalOpen(true);
+  }
+
+  function closeModal() {
+    setIsModalOpen(false);
+  }
+
   return (
     <div className={styles.boardContainer}>
       <h1>게시판</h1>
-
-      {error && <p className={styles.error}>{error}</p>}
-
-      <div className={styles.formGroup}>
-        <label htmlFor="title">제목</label>
-        <input
-          id="title"
-          type="text"
-          placeholder="제목"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </div>
-
-      <div className={styles.formGroup}>
-        <label htmlFor="content">내용</label>
-        <textarea
-          id="content"
-          placeholder="내용"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-      </div>
-
-      <div className={styles.formGroup}>
-        <label htmlFor="category">카테고리</label>
-        <select
-          id="category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          <option value="NOTICE">공지사항</option>
-          <option value="GENERAL">일반</option>
-        </select>
-      </div>
-
-      {editId ? (
-        <button className={styles.submitBtn} onClick={handleUpdateBoard}>
-          수정 완료
-        </button>
-      ) : (
-        <button className={styles.submitBtn} onClick={handleCreateBoard}>
-          글 작성
-        </button>
-      )}
-
+      <button onClick={openModal} className={styles.openModalBtn}>
+        글 작성
+      </button>
       <div className={styles.boardList}>
         {boards.length > 0 ? (
           <ul>
@@ -241,6 +230,8 @@ export default function BoardPage() {
           <p>게시물이 없습니다.</p>
         )}
       </div>
+      {error && <p className={styles.error}>{error}</p>}
+
       <div className={styles.pageNavigation}>
         <button
           onClick={() => handlePageChange(page - 1)}
@@ -258,6 +249,25 @@ export default function BoardPage() {
           다음
         </button>
       </div>
+      {isModalOpen && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <button onClick={closeModal} className={styles.closeModalBtn}>
+              닫기
+            </button>
+            <BoardForm
+              title={title}
+              content={content}
+              category={category}
+              onTitleChange={setTitle}
+              onContentChange={setContent}
+              onCategoryChange={setCategory}
+              onSubmit={editId ? handleUpdateBoard : handleCreateBoard}
+              editId={editId}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
