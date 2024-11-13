@@ -14,9 +14,13 @@ export default async function login(email: string, password: string) {
       }
     );
 
+    const data = await response?.json();
+
+    localStorage.setItem("accessToken", data.accessToken);
+    localStorage.setItem("refreshToken", data.refreshToken);
+
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.message || "로그인에 실패했습니다.");
+      throw new Error(data.message || "로그인에 실패했습니다.");
     }
 
     return true;
